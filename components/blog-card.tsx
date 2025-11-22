@@ -5,7 +5,7 @@ import React from "react";
 
 export default function BlogCard({ blog }: { blog: PostsMetadata }) {
   return (
-    <Link href={`/blogs/${blog.id}`}>
+    <Link href={`/blogs/${blog.slug}`} aria-label={`Read more about ${blog.title}`}>
       <article className="group p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer">
         <div className="space-y-4">
           <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">

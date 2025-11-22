@@ -82,8 +82,10 @@ export type GetPostBySlugResponse = {
       coverImage: {
         url: string;
       };
+      publishedAt: string;
+      readTimeInMinutes: number;
       content: {
-        html: string;
+        markdown: string;
       };
       author: {
         name: string;

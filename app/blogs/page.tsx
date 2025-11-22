@@ -3,8 +3,8 @@
 import BlogPosts from "@/components/blog-posts";
 import PageLoader from "@/components/page-loader";
 import { formatBlogDate } from "@/lib/format-blog-date";
+import { QueryClient } from "@tanstack/react-query";
 import axios from "axios";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 interface Blogs {

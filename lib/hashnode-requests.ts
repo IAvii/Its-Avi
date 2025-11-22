@@ -108,7 +108,7 @@ export async function subscribeToNewsletter(email: string) {
   return response;
 }
 
-export async function getPostBySlug(slug: string) {
+export async function getPostBySlug(slug: string | string[]) {
   const query = gql`
     query getPostBySlug($publicationId: ObjectId!, $slug: String!) {
       publication(id: $publicationId) {
@@ -118,8 +118,10 @@ export async function getPostBySlug(slug: string) {
           coverImage {
             url
           }
+          publishedAt
+          readTimeInMinutes
           content {
-            html
+            markdown
           }
           author {
             name

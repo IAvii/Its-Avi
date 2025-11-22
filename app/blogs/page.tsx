@@ -1,5 +1,6 @@
 "use client";
 
+import BlogPosts from "@/components/blog-posts";
 import PageLoader from "@/components/page-loader";
 import { formatBlogDate } from "@/lib/format-blog-date";
 import axios from "axios";
@@ -77,75 +78,7 @@ export default function Page() {
         }}
         className="min-h-screen py-32 opacity-0"
       >
-        <div className="space-y-16">
-          <h2 className="text-4xl font-light">Blogs</h2>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {data.map((blog, index) => (
-              <Link href={`/blogs/${blog._id}`} key={index}>
-                <article className="group p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
-                      <span>{formatBlogDate(blog.createdAt)}</span>
-                      <span>{blog.readTime}</span>
-                    </div>
-
-                    <h3 className="text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
-                      {blog.title}
-                    </h3>
-
-                    <p className="text-muted-foreground leading-relaxed">
-                      {blog.subtitle}
-                    </p>
-
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                      <span>Read more</span>
-                      <svg
-                        className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </article>
-              </Link>
-            ))}
-            <div className="col-span-full w-full border-b border-border/50 hover:border-border flex items-center justify-start">
-              <div className="flex justify-start">
-                <Link
-                  href="/"
-                  aria-label="Go back to blogs list"
-                  className="group flex items-center gap-2 py-4 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <svg
-                    className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M7 8l-4 4m0 0l4 4m-4-4H21"
-                    />
-                  </svg>
-                  <span>Go back</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        <BlogPosts />
       </section>
     </main>
   );

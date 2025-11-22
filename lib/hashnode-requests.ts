@@ -54,6 +54,8 @@ export async function getPosts({ first = 9, pageParam = "" }: GetPostsArgs) {
               coverImage {
                 url
               }
+              readTimeInMinutes
+              publishedAt
               author {
                 name
                 profilePicture

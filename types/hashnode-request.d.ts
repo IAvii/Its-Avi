@@ -8,7 +8,27 @@ export type PublicationName = {
   };
 };
 
+export type PostsMetadata = {
+  id: string;
+  title: string;
+  subtitle?: string;
+  slug: string;
+  // content: {
+  //   text: string;
+  // };
+  // coverImage: {
+  //   url: string;
+  // };
+  readTimeInMinutes: number;
+  publishedAt: string;
+  // author: {
+  //   name: string;
+  //   profilePicture?: string;
+  // };
+};
+
 export type PostMetadata = {
+  id: string;
   title: string;
   subtitle?: string;
   slug: string;
@@ -18,6 +38,8 @@ export type PostMetadata = {
   coverImage: {
     url: string;
   };
+  readTimeInMinutes: number;
+  publishedAt: Date;
   author: {
     name: string;
     profilePicture?: string;
@@ -28,7 +50,7 @@ type GetPostsResponse = {
   publication: {
     posts: {
       edges: {
-        node: PostMetadata;
+        node: PostsMetadata;
         cursor: string;
       }[];
     };

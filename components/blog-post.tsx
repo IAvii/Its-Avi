@@ -26,16 +26,17 @@ export default function BlogPost({slug}: {slug: string | string[]}) {
               <div className="space-y-4">
                 <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
                   <span>{formatBlogDate(data.publishedAt)}</span>
-                  <span>{data.readTimeInMinutes}</span>
+                  <span>{data.readTimeInMinutes} min</span>
                 </div>
 
                 <h3 className="text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
                   {data.subtitle}
                 </h3>
 
-                <p className="text-muted-foreground leading-relaxed">
-                  {data.content.markdown}
-                </p>
+                <div className="text-muted-foreground leading-relaxed">
+
+                  <article className="article" dangerouslySetInnerHTML={{ __html: data.content.html }} />
+                </div>
               </div>
             </article>
           </div>

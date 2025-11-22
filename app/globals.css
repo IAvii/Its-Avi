@@ -37,6 +37,38 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+.article {
+  @apply flex flex-col gap-3  text-base tracking-wide mb-2;
+}
+
+.article > h1 {
+  @apply  text-4xl text-center tracking-tight;
+}
+
+.article > h2 {
+  @apply text-2xl text-foreground tracking-normal;
+}
+
+.article > ol {
+  @apply list-decimal flex flex-col mx-10 gap-2;
+}
+
+.article > ul {
+  @apply list-disc flex flex-col mx-10 gap-2;
+}
+
+.article > pre {
+  @apply bg-neutral-950 text-neutral-50 p-5 overflow-scroll font-mono border-neutral-800 rounded-lg;
+}
+
+.article > blockquote {
+  @apply pl-5 italic border-l-2 border-neutral-600 border-black/40;
+}
+
+.article > p > img {
+  @apply w-1/2 mx-auto;
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -138,3 +170,5 @@
     }
   }
 }
+
+/* Styling for blog post content */

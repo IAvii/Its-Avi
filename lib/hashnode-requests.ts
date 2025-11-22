@@ -48,9 +48,6 @@ export async function getPosts({ first = 9, pageParam = "" }: GetPostsArgs) {
               title
               subtitle
               slug
-              content {
-                text
-              }
               coverImage {
                 url
               }
@@ -121,7 +118,7 @@ export async function getPostBySlug(slug: string | string[]) {
           publishedAt
           readTimeInMinutes
           content {
-            markdown
+            html
           }
           author {
             name

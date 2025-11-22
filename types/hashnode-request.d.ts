@@ -16,15 +16,15 @@ export type PostsMetadata = {
   // content: {
   //   text: string;
   // };
-  // coverImage: {
-  //   url: string;
-  // };
+  coverImage: {
+    url: string;
+  };
   readTimeInMinutes: number;
   publishedAt: string;
-  // author: {
-  //   name: string;
-  //   profilePicture?: string;
-  // };
+  author: {
+    name: string;
+    profilePicture?: string;
+  };
 };
 
 export type PostMetadata = {
@@ -33,7 +33,7 @@ export type PostMetadata = {
   subtitle?: string;
   slug: string;
   content: {
-    text: string;
+    html: string;
   };
   coverImage: {
     url: string;
@@ -85,7 +85,7 @@ export type GetPostBySlugResponse = {
       publishedAt: string;
       readTimeInMinutes: number;
       content: {
-        markdown: string;
+        html: string;
       };
       author: {
         name: string;

@@ -5,6 +5,7 @@ import { getPostBySlug } from '@/lib/hashnode-requests'
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import React from 'react'
+import Article from './article';
 
 export default function BlogPost({slug}: {slug: string | string[]}) {
 
@@ -19,29 +20,25 @@ export default function BlogPost({slug}: {slug: string | string[]}) {
 
   return (
     <div className="space-y-16">
-          <h2 className="text-4xl font-light">{data.title}</h2>
+          <h2 className="text-4xl sm:text-5xl font-light">{data.title}</h2>
 
           <div className="gap-8">
-            <article className="group p-8 transition-all duration-500 hover:shadow-lg">
+            <article className="group sm:p-8 transition-all duration-500 hover:shadow-lg">
               <div className="space-y-4">
-                <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
+                <div className="flex items-center justify-between text-xs text-muted-foreground pb-2 font-mono border-b border-border/50 hover:border-border">
                   <span>{formatBlogDate(data.publishedAt)}</span>
-                  <span>{data.readTimeInMinutes} min</span>
+                  <span>{data.readTimeInMinutes} min read</span>
                 </div>
 
-                <h3 className="text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
+                <h3 className="text-2xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
                   {data.subtitle}
                 </h3>
 
-                <div className="text-muted-foreground leading-relaxed">
-
-                  <article className="article" dangerouslySetInnerHTML={{ __html: data.content.html }} />
-                </div>
+                <Article content={data.content.html} />
               </div>
             </article>
           </div>
 
-          {/* Add a full-width bottom row with a right-aligned "Go back" link styled like the home page "Read more" with arrow */}
           <div className="col-span-full w-full border-b border-border/50 hover:border-border">
             <div className="flex justify-start">
               <Link

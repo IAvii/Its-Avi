@@ -38,10 +38,6 @@ export default function Page() {
     fetchBlogs();
   }, []);
 
-  // useEffect(() => {
-  //   document.documentElement.classList.toggle("dark", isDark)
-  // }, [isDark])
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

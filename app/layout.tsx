@@ -23,7 +23,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
         <main className="max-w-4xl mx-auto px-8 lg:px-16">
         <SiteFooter />

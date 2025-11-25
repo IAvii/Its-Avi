@@ -6,19 +6,24 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import BlogCard from "./blog-card";
 import { CloudCheck, Loader } from "lucide-react";
+import { useEffect } from "react";
 
-export default function BlogPosts() {
-  const { data, hasNextPage, fetchNextPage, isFetching } = useInfiniteQuery({
-    queryKey: ["posts"],
+export default function BlogPosts({setLoading}: {setLoading: (loading: boolean) => void}) {
+  const { data, hasNextPage, fetchNextPage, isFetching, status, isLoading } = useInfiniteQuery({
+    queryKey: ["Allposts"],
     queryFn: getPosts,
     getNextPageParam: (lastPage) =>
-      lastPage.length < 9 ? undefined : lastPage[lastPage.length - 1].cursor,
+      lastPage.hasNextPage ? lastPage.cursor : undefined,
     initialPageParam: "",
   });
 
-  if (!data) {
-    return <PageLoader />;
-  }
+  useEffect(() => {
+    setLoading(isLoading);
+  }, [data, isLoading, setLoading]);
+
+  if (isLoading) return <PageLoader />;
+  if (!data) return <PageLoader />;
+  if (status === "error") return <div className="h-screen">Error loading blogs.</div>;
 
   return (
     <div className="space-y-16">
@@ -26,7 +31,7 @@ export default function BlogPosts() {
 
       <div className="grid lg:grid-cols-2 gap-8">
         {data.pages.map((page) =>
-          page.map((blog) => <BlogCard key={blog.node.id} blog={blog.node} />)
+          page.posts.map((blog) => <BlogCard key={blog.node.id} blog={blog.node} />)
         )}
         <div className="col-span-full w-full border-b border-border/50 hover:border-border flex items-center justify-between">
           <div className="flex justify-start">
@@ -62,7 +67,10 @@ export default function BlogPosts() {
           >
             {isFetching ? (
               <>
-                <Loader size={14} className="animate-spin group-hover:-translate-x-1" />
+                <Loader
+                  size={14}
+                  className="animate-spin group-hover:-translate-x-1"
+                />
                 <span>Fetching...</span>
               </>
             ) : hasNextPage ? (

@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import SiteFooter from "@/components/site-footer"
+import QueryReactQuery from "@/components/query-client";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
       <body className="font-sans antialiased" suppressHydrationWarning>
+        <QueryReactQuery>
         {children}
+        </QueryReactQuery>
         <main className="max-w-4xl mx-auto px-8 lg:px-16">
         <SiteFooter />
         </main>

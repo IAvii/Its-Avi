@@ -7,36 +7,12 @@ import { QueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 
-interface Blogs {
-  _id: string;
-  title: string;
-  subtitle: string;
-  createdAt: string;
-  readTime: string;
-}
 
 export default function Page() {
-  // const [isDark, setIsDark] = useState(true)
   const [activeSection, setActiveSection] = useState("");
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
-  const [data, setData] = useState<Blogs[] | null>(null);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await axios.get("/api/user-blogs");
-        const data = response.data.blogs;
-        setData(data);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchBlogs();
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -62,8 +38,6 @@ export default function Page() {
   //   setIsDark(!isDark)
   // }
 
-  if (loading) return <PageLoader />;
-  if (!data) return <PageLoader />;
 
   return (
     <main className="max-w-4xl mx-auto px-8 lg:px-16">
@@ -72,9 +46,9 @@ export default function Page() {
         ref={(el) => {
           sectionsRef.current[2] = el;
         }}
-        className="min-h-screen py-32 opacity-0"
+        className="min-h-screen py-32"
       >
-        <BlogPosts />
+        <BlogPosts setLoading={setLoading} />
       </section>
     </main>
   );

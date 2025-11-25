@@ -60,6 +60,10 @@ export async function getPosts({ first = 9, pageParam = "" }: GetPostsArgs) {
             }
             cursor
           }
+          pageInfo {
+            endCursor
+            hasNextPage
+          }
         }
       }
     }
@@ -75,7 +79,11 @@ export async function getPosts({ first = 9, pageParam = "" }: GetPostsArgs) {
     after: pageParam,
   });
 
-  return response.publication.posts.edges;
+  return {
+    posts: response.publication.posts.edges,
+    cursor: response.publication.posts.pageInfo.endCursor,
+    hasNextPage: response.publication.posts.pageInfo.hasNextPage,
+  };
 }
 
 export async function subscribeToNewsletter(email: string) {

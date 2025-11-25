@@ -53,6 +53,10 @@ type GetPostsResponse = {
         node: PostsMetadata;
         cursor: string;
       }[];
+      pageInfo: {
+        endCursor: string;
+        hasNextPage: boolean | null;
+      };
     };
   };
 };

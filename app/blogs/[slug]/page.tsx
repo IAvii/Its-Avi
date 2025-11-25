@@ -19,6 +19,8 @@ export async function generateMetadata( { params }: { params: { slug: string | s
 
 export default async function Page( { params }: { params: { slug: string | string[] } } ) {
 
+  
+
   const queryClient = new QueryClient();
   const { slug } = await params;
   

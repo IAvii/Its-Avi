@@ -26,28 +26,12 @@ export function BlogsSection({
   setLoading: (loading: boolean) => void
 }) {
 
-  // const [num, setData] = useState<Blog[] | null>(null);
-
-  // useEffect(() => {
-  //   const fetchBlogs = async () => {
-  //     try {
-  //       const response = await axios.get("/api/user-blogs");
-  //       const data = response.data.blogs;
-  //       setData(data);
-  //     } catch (error) {
-  //       console.error("Error fetching blogs:", error);
-  //     }finally {
-  //       setLoading(false)
-  //     }
-  //   }
-  //   fetchBlogs();
-  // }, []);
-
   const { data, isLoading } = useQuery({
     queryKey: ['postSectionBlogs'],
     queryFn: () => getPosts({ first: 4 }), 
   });
 
+  if (isLoading) return <PageLoader />  
   if (!data) return <PageLoader />
 
 

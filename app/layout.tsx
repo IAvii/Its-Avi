@@ -2,8 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import SiteFooter from "@/components/site-footer"
-import QueryReactQuery from "@/components/query-client";
+import SiteFooter from "@/components/footer/site-footer"
+import QueryReactQuery from "@/components/utils/query-client";
 
 const inter = Inter({
   subsets: ["latin"],

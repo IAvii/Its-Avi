@@ -1,6 +1,6 @@
 "use client";
 
-import PageLoader from "@/components/page-loader";
+import PageLoader from "@/components/loaders/page-loader";
 import { getPosts } from "@/lib/hashnode-requests";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";

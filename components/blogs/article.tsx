@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import parse from "html-react-parser";
-import { options } from "./blog-content-parse";
+import { options } from "../utils/blog-content-parse";
 import hljs from "highlight.js";
 import "highlight.js/styles/github-dark.css"; // Choose your theme
 

@@ -1,7 +1,7 @@
 
 
-import BlogPost from "@/components/blog-post";
-import PageLoader from "@/components/page-loader";
+import BlogPost from "@/components/blogs/blog-post";
+import PageLoader from "@/components/loaders/page-loader";
 import { formatBlogDate } from "@/lib/format-blog-date";
 import { getPostBySlug } from "@/lib/hashnode-requests";
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";

@@ -1,51 +1,10 @@
-"use client";
-
-import axios from "axios";
-import { useEffect, useState } from "react";
-import PageLoader from "./page-loader";
-
-interface IntroData {
-  name: {
-    firstName: string
-    lastName: string
-  }
-  availability: {
-    message: string
-    color: string
-  }
-  userlocation: string
-  technology_skills: [string]
-  currently: {
-    role: string
-    organisation: string
-  }
-}
+import { introData as data } from "@/data/intro.data";
 
 export function IntroSection({
-  sectionRef, setLoading
+  sectionRef
 }: {
   sectionRef: (el: HTMLElement | null) => void;
-  setLoading: (loading: boolean) => void
 }) {
-
-  const [ data, setData ] = useState<IntroData | null>(null)
-
-  useEffect(() => {
-    const fetchIntro = async () => {
-      try {
-        const response = await axios.get("/api/user-intro");
-        const { intro } = response.data;
-        setData(intro);
-      } catch (error) {
-        console.error("Error fetching intro:", error);
-      }finally {
-        setLoading(false)
-      }
-    }
-    fetchIntro();
-  }, [setLoading])
-
-  if (!data) return <PageLoader />
 
   
   return (

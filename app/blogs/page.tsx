@@ -1,10 +1,6 @@
 "use client";
 
-import BlogPosts from "@/components/blog-posts";
-import PageLoader from "@/components/page-loader";
-import { formatBlogDate } from "@/lib/format-blog-date";
-import { QueryClient } from "@tanstack/react-query";
-import axios from "axios";
+import BlogPosts from "@/components/blogs/blog-posts";
 import { useEffect, useRef, useState } from "react";
 
 

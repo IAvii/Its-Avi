@@ -1,22 +1,28 @@
 "use client";
 
 import { useEffect, useRef, useState, useMemo, useCallback } from "react";
-import { IntroSection } from "@/components/intro-section";
-import { ExperienceSection } from "@/components/experience-section";
-import { BlogsSection } from "@/components/blogs-section";
-import { ResumeSection } from "@/components/resume-section";
-import { ConnectSection } from "@/components/connect-section";
-import PageLoader from "@/components/page-loader";
+import { IntroSection } from "@/components/sections/intro-section";
+import { ExperienceSection } from "@/components/sections/experience-section";
+import { BlogsSection } from "@/components/sections/blogs-section";
+import { ResumeSection } from "@/components/sections/resume-section";
+import { ConnectSection } from "@/components/sections/connect-section";
 import Lenis from "@studio-freight/lenis";
+import Introloading from "@/components/loaders/intro-loader";
+import PageLoader from "@/components/loaders/page-loader";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("");
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
-  const [introLoading, setIntroLoading] = useState(true);
-  const [experienceLoading, setExperienceLoading] = useState(true);
-  const [blogsLoading, setBlogsLoading] = useState(true);
-  const [connectLoading, setConnectLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
+
+   useEffect(() => {
+    const loadingTimer = setTimeout(() => {
+      setLoading(false);
+    }, 1100);
+
+    return () => clearTimeout(loadingTimer);
+  }, []);
 
   const sectionIds = useMemo(
     () => ["intro", "work", "thoughts", "Resume", "connect"],
@@ -58,11 +64,13 @@ export default function Home() {
     });
 
     return () => observer.disconnect();
-  }, [introLoading, experienceLoading, blogsLoading, connectLoading]);
+  }, [loading]);
 
   const onNavClick = useCallback((id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }, []);
+
+  if (loading) return <PageLoader />;
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
@@ -85,20 +93,16 @@ export default function Home() {
 
       <main className="max-w-4xl mx-auto px-8 lg:px-16">
         <IntroSection
-          setLoading={setIntroLoading}
           sectionRef={sectionRefCallbacks[0]}
         />
         <ExperienceSection
-          setLoading={setExperienceLoading}
           sectionRef={sectionRefCallbacks[1]}
         />
         <BlogsSection
-          setLoading={setBlogsLoading}
           sectionRef={sectionRefCallbacks[2]}
         />
         <ResumeSection sectionRef={sectionRefCallbacks[3]} />
         <ConnectSection
-          setLoading={setConnectLoading}
           sectionRef={sectionRefCallbacks[4]}
         />
       </main>

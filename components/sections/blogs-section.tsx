@@ -1,29 +1,13 @@
-"use client"
-
 import Link from "next/link"
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { formatBlogDate } from "@/lib/format-blog-date"
-import PageLoader from "./page-loader"
+import PageLoader from "../loaders/page-loader"
 import { useQuery } from "@tanstack/react-query"
 import { getPosts } from "@/lib/hashnode-requests"
-import BlogCard from "./blog-card"
-
-
-interface Blog {
-  _id: string
-  title: string
-  subtitle: string
-  createdAt: string
-  readTime: string
-}
+import BlogCard from "../blogs/blog-card"
 
 export function BlogsSection({
-  sectionRef, setLoading
-
+  sectionRef
 }: {
   sectionRef: (el: HTMLElement | null) => void
-  setLoading: (loading: boolean) => void
 }) {
 
   const { data, isLoading } = useQuery({
@@ -31,12 +15,13 @@ export function BlogsSection({
     queryFn: () => getPosts({ first: 4 }), 
   });
 
-  if (isLoading) return <PageLoader />  
-  if (!data) return <PageLoader />
+  if (isLoading) return <PageLoader /> 
+
+  if (!data) return <div>Data not found</div>
 
 
   return (
-    <section id="thoughts" ref={sectionRef} className="min-h-screen py-32 opacity-0">
+    <section id="thoughts" ref={sectionRef} className="min-h-screen py-32"> 
       <div className="space-y-16">
         <h2 className="text-4xl font-light">Recent Blogs</h2>
 

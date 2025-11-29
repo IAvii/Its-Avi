@@ -37,7 +37,6 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -138,62 +137,59 @@
       transform: translateY(0);
     }
   }
+
+  /* .animate-blur-in {
+    animation: blurFadeIn 0.4s ease-out forwards;
+  }
+
+  @keyframes blurFadeIn {
+    from {
+      opacity: 0;
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  .animate-blur-out {
+    animation: blurFadeOut 0.7s ease-out forwards;
+    animation-delay: 0.4s;
+  }
+
+  @keyframes blurFadeOut {
+    from {
+      opacity: 1;
+      filter: blur(0);
+    }
+    to {
+      opacity: 0;
+      filter: blur(8px);
+      visibility: hidden;
+    }
+  } */
 }
 
-/* Styling for blog post content */
 
-
-.article {
-  @apply flex flex-col gap-4  text-base tracking-wide mb-2 mx-auto;
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0.375rem;
 }
 
-.article > h1 {
-  @apply text-4xl text-center tracking-tight;
+*::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.article > h2 {
-  @apply text-2xl text-foreground tracking-normal;
+*::-webkit-scrollbar-thumb {
+  background: transparent;
 }
 
-.article > ol {
-  @apply list-decimal flex flex-col mx-10 gap-2;
-}
-
-.article > ul {
-  @apply list-disc flex flex-col mx-10 gap-2;
-}
-
-.article > pre {
-  @apply text-[11px]
-  text-neutral-50 
-  sm:text-[14px] 
-  md:text-sm 
-  overflow-scroll 
-  font-mono 
-  my-2 
-  w-full 
-  border 
-  border-neutral-800 
-  rounded-md 
-  overflow-x-auto 
-  [&::-webkit-scrollbar]:w-0 
-  [&::-webkit-scrollbar]:h-1.5
-  [&::-webkit-scrollbar-track]:bg-transparent
-  [&::-webkit-scrollbar-thumb]:bg-gray-400/80
-  [&::-webkit-scrollbar-thumb]:rounded-full
-  [&::-webkit-scrollbar-thumb]:bg-clip-padding;
-}
-
-.article > code {
-  @apply bg-neutral-950 text-neutral-50 rounded-md py-0.5 px-1 font-mono ;
-}
-
-.article > blockquote {
-  @apply pl-5 italic border-l-2 border-neutral-600 border-black/40;
-}
-
-.article > p > img {
-  @apply w-1/2 mx-auto rounded-xs py-2;
+*:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.8);
+  border: 2px solid transparent;
+  border-radius: 9999px; 
+  background-clip: padding-box;
 }
 
 

@@ -1,44 +1,11 @@
-"use client"
-
-import axios from "axios";
 import Link from "next/link"
-import { useEffect, useState } from "react";
-import PageLoader from "./page-loader";
-
-interface Connect {
-  email: string
-  socials: {
-    name: string
-    handle: string
-    url: string
-  }[]
-}
+import { connect as data } from "@/data/connect.data";
 
 export function ConnectSection({
-  sectionRef,
-  setLoading
+  sectionRef
 }: {
   sectionRef: (el: HTMLElement | null) => void
-  setLoading: (loading: boolean) => void
 }) {
-  const [data, setData] = useState<Connect | null>(null);
-
-  useEffect(() => {
-    const fetchConnect = async () => {
-      try {
-        const response = await axios.get("/api/user-connect");
-        const { connect } = response.data;
-        setData(connect);
-      } catch (error) {
-        console.error("Error fetching connect:", error);
-      }finally {
-        setLoading(false)
-      }
-    }
-    fetchConnect();
-  }, [])
-
-  if (!data) return <PageLoader />
   
   return (
     <section id="connect" ref={sectionRef} className="py-32 opacity-0">

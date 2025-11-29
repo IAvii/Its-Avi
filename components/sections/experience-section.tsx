@@ -1,49 +1,11 @@
-"use client"
-
-import axios from "axios"
-import { useEffect, useState } from "react"
-import PageLoader from "./page-loader"
-
-interface Experience {
-  year : string
-  role_Name : string
-  link? : string
-  deployment: {
-    status : boolean,
-    message? : string,
-    statusColor? : string
-  }
-  company_Subtitle : string
-  description : string
-  techUsed : string[]
-}
+import { experienceData as data } from "@/data/experience.data"
 
 export function ExperienceSection({
-  sectionRef,
-  setLoading
+  sectionRef
 }: {
   sectionRef: (el: HTMLElement | null) => void
-  setLoading: (loading: boolean) => void
 }) {
 
-  const [data, setData] = useState<Experience[] | null>(null)
-
-  useEffect(() => {
-    const fetchExperiences = async () => {
-      try {
-        const response = await axios.get("/api/user-experience");
-        const { experiences } = response.data;
-        setData(experiences);
-      } catch (error) {
-        console.error("Error fetching experiences:", error);
-      } finally {
-        setLoading(false)
-      }
-    };
-    fetchExperiences();
-  }, []);
-
-  if (!data) return <PageLoader />
 
   return (
     <section id="work" ref={sectionRef} className="min-h-screen py-32 opacity-0">

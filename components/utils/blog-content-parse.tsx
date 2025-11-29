@@ -130,7 +130,7 @@ const options: HTMLReactParserOptions = {
           </div>
           <pre
             {...domNode.attribs}
-            className="text-[11px] text-neutral-50 sm:text-[14px] md:text-sm overflow-scroll font-mono m-0 w-full border-0 rounded-b-md overflow-x-auto [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-400/80 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-clip-padding"
+            className="text-[11px] text-neutral-50 sm:text-[14px] md:text-sm overflow-scroll font-mono m-0 w-full border-0 rounded-b-md overflow-x-auto"
           >
             {domToReact(domNode.children as DOMNode[], options)}
           </pre>

@@ -17,13 +17,13 @@ export default function Home() {
 
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const loadingTimer = setTimeout(() => {
-      setLoading(false);
-    }, 1100);
+  // useEffect(() => {
+  //   const loadingTimer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 4100);
 
-    return () => clearTimeout(loadingTimer);
-  }, []);
+  //   return () => clearTimeout(loadingTimer);
+  // }, []);
 
   const sectionIds = useMemo(
     () => ["intro", "work", "thoughts", "Resume", "connect"],
@@ -71,7 +71,7 @@ export default function Home() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
-  if (loading) return <PageLoader />;
+  // if (loading) return <PageLoader />;
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">

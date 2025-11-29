@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 
 export default function Page() {
-  const [activeSection, setActiveSection] = useState("");
+  const [_, setActiveSection] = useState("");
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
   const [loading, setLoading] = useState(true);

@@ -38,7 +38,7 @@ export default function SiteFooter() {
   const toggleTheme = () => setIsDark((v) => !v)
 
   return (
-    <footer className="py-16 border-t border-border">
+    <footer className="py-16  border-t border-border">
       <div className="max-w-4xl mx-auto px-8 lg:px-16">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
           <div className="space-y-2">

@@ -9,6 +9,7 @@ import { ConnectSection } from "@/components/sections/connect-section";
 import Lenis from "@studio-freight/lenis";
 import Introloading from "@/components/loaders/intro-loader";
 import PageLoader from "@/components/loaders/page-loader";
+import SiteFooter from "@/components/footer/site-footer";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("");
@@ -16,7 +17,7 @@ export default function Home() {
 
   const [loading, setLoading] = useState(true);
 
-   useEffect(() => {
+  useEffect(() => {
     const loadingTimer = setTimeout(() => {
       setLoading(false);
     }, 1100);
@@ -92,22 +93,14 @@ export default function Home() {
       </nav>
 
       <main className="max-w-4xl mx-auto px-8 lg:px-16">
-        <IntroSection
-          sectionRef={sectionRefCallbacks[0]}
-        />
-        <ExperienceSection
-          sectionRef={sectionRefCallbacks[1]}
-        />
-        <BlogsSection
-          sectionRef={sectionRefCallbacks[2]}
-        />
+        <IntroSection sectionRef={sectionRefCallbacks[0]} />
+        <ExperienceSection sectionRef={sectionRefCallbacks[1]} />
+        <BlogsSection sectionRef={sectionRefCallbacks[2]} />
         <ResumeSection sectionRef={sectionRefCallbacks[3]} />
-        <ConnectSection
-          sectionRef={sectionRefCallbacks[4]}
-        />
-      </main>
+        <ConnectSection sectionRef={sectionRefCallbacks[4]} />
 
-      <div className="fixed bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none"></div>
+        <SiteFooter />
+      </main>
     </div>
   );
 }

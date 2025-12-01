@@ -1,12 +1,11 @@
 import { introData as data } from "@/data/intro.data";
+import Name from "../name"
 
 export function IntroSection({
-  sectionRef
+  sectionRef,
 }: {
   sectionRef: (el: HTMLElement | null) => void;
 }) {
-
-  
   return (
     <header
       id="intro"
@@ -19,11 +18,17 @@ export function IntroSection({
             <div className="text-sm text-muted-foreground font-mono tracking-wider">
               PORTFOLIO / 2025
             </div>
-            <h1 className="text-6xl lg:text-7xl font-light tracking-tight">
-              {data.name.firstName}
-              <br />
-              <span className="text-muted-foreground">{data.name.lastName}</span>
-            </h1>
+            {/* <div>
+              <h1 className="text-6xl lg:text-7xl font-light tracking-tight">
+                {data.name.firstName}
+              </h1>
+              <h1 className="text-6xl lg:text-7xl font-light tracking-tight">
+                <span className="text-muted-foreground">
+                  {data.name.lastName}
+                </span>
+              </h1>
+            </div> */}
+            <Name />
           </div>
 
           <div className="space-y-6 max-w-md">
@@ -39,8 +44,12 @@ export function IntroSection({
             </p>
 
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center animate-pulse gap-2"> {/* text-foreground*/}
-                <div className={`w-2 h-2 ${data.availability.color} rounded-full animate-pulse`}></div>
+              <div className="flex items-center animate-pulse gap-2">
+                {" "}
+                {/* text-foreground*/}
+                <div
+                  className={`w-2 h-2 ${data.availability.color} rounded-full animate-pulse`}
+                ></div>
                 {data.availability.message}
               </div>
               {/* Uncomment this div classname and svg if you want only location */}
@@ -70,9 +79,7 @@ export function IntroSection({
               CURRENTLY
             </div>
             <div className="space-y-2">
-              <div className="text-foreground">
-                {data.currently.role}
-              </div>
+              <div className="text-foreground">{data.currently.role}</div>
               <div className="text-muted-foreground">
                 @ {data.currently.organisation}
               </div>

@@ -6,7 +6,7 @@ import { ExperienceSection } from "@/components/sections/experience-section";
 import { BlogsSection } from "@/components/sections/blogs-section";
 import { ResumeSection } from "@/components/sections/resume-section";
 import { ConnectSection } from "@/components/sections/connect-section";
-import Lenis from "@studio-freight/lenis";
+import Lenis from "lenis";
 import Introloading from "@/components/loaders/intro-loader";
 import PageLoader from "@/components/loaders/page-loader";
 import SiteFooter from "@/components/footer/site-footer";

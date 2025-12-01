@@ -192,6 +192,10 @@
   background-clip: padding-box;
 }
 
+*::selection {
+  background-color: rgba(78, 78, 78, 0.465);
+}
+
 
 .hljs {
   background: transparent !important;

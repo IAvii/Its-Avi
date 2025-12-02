@@ -11,7 +11,7 @@ export function ExperienceSection({
     <section id="work" ref={sectionRef} className="min-h-screen py-32 opacity-0">
       <div className="space-y-16">
         <div className="flex items-end justify-between">
-          <h2 className="text-4xl font-light">Experience</h2>
+          <h2 className="text-4xl font-light">Projects</h2>
           <div className="text-sm text-muted-foreground font-mono">2023 — Present</div>
         </div>
 

@@ -12,8 +12,50 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Avinash Ganore - Software Developer",
-  description: "Result Driven Software Developer",
+  metadataBase: new URL('https://avinashganore.xyz'),
+  title: 'Avinash Ganore - Software Developer',
+  description: 'Result Driven Software Developer',
+  authors: [{ name: 'Avinash Ganore' }],
+  creator: 'Avinash Ganore',
+  publisher: 'Avinash Ganore',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://avinashganore.xyz',
+    title: 'Avinash Ganore - Software Developer',
+    description: 'Result Driven Software Developer',
+    siteName: 'Avinash Ganore',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/og.webp',
+        secureUrl: '/og.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Avinash Ganore - Software Developer',
+        type: 'image/webp',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Avinash Ganore - Software Developer',
+    description: 'Result Driven Software Developer',
+    images: ['/og.webp'],
+  },
+  alternates: {
+    canonical: 'https://avinashganore.xyz',
+  },
 }
 
 export default function RootLayout({

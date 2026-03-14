@@ -3,16 +3,26 @@
 import { formatBlogDate } from '@/lib/format-blog-date';
 import { getPostBySlug } from '@/lib/hashnode-requests'
 import { useQuery } from '@tanstack/react-query';
-import Link from 'next/link';
 import React from 'react'
+import { useRouter } from 'next/navigation';
 import Article from './article';
 
 export default function BlogPost({slug}: {slug: string | string[]}) {
+  const router = useRouter();
 
   const { data } = useQuery({
     queryKey: ['post', slug],
     queryFn: () => getPostBySlug(slug), 
   });
+
+  const handleGoBack = () => {
+    if (window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+
+    router.push('/blogs');
+  };
 
   if (!data) {
     return <p className="text-center text-muted-foreground">Blog not found.</p>;
@@ -41,8 +51,9 @@ export default function BlogPost({slug}: {slug: string | string[]}) {
 
           <div className="col-span-full w-full border-b border-border/50 hover:border-border">
             <div className="flex justify-start">
-              <Link
-                href="/blogs"
+              <button
+                type="button"
+                onClick={handleGoBack}
                 aria-label="Go back to blogs list"
                 className="group flex items-center gap-2 py-4 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
@@ -61,7 +72,7 @@ export default function BlogPost({slug}: {slug: string | string[]}) {
                   />
                 </svg>
                 <span>Go back</span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>

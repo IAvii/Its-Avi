@@ -14,6 +14,7 @@ import SiteFooter from "@/components/footer/site-footer";
 export default function Home() {
   const [activeSection, setActiveSection] = useState("");
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const revealedSectionsRef = useRef<Set<string>>(new Set());
 
   const [loading, setLoading] = useState(true);
 
@@ -51,9 +52,14 @@ export default function Home() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in-up");
             const id = (entry.target as HTMLElement).id;
             setActiveSection((prev) => (prev === id ? prev : id));
+
+            // Reveal animation should play only once per section.
+            if (!revealedSectionsRef.current.has(id)) {
+              entry.target.classList.add("animate-fade-in-up");
+              revealedSectionsRef.current.add(id);
+            }
           }
         });
       },

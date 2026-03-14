@@ -1,11 +1,46 @@
 import { formatBlogDate } from "@/lib/format-blog-date";
 import { PostsMetadata } from "@/types/hashnode-request";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
-export default function BlogCard({ blog }: { blog: PostsMetadata }) {
+export default function BlogCard({
+  blog,
+  from,
+}: {
+  blog: PostsMetadata;
+  from?: "home-thoughts";
+}) {
+  const router = useRouter();
+  const href = `/blogs/${blog.slug}`;
+
+  const handleCardClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    // Preserve default browser behavior for modified clicks (new tab/window).
+    if (
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      event.button !== 0
+    ) {
+      return;
+    }
+
+    if (from !== "home-thoughts") return;
+
+    event.preventDefault();
+
+    // Router-based history seeding so one Back returns to home blogs section.
+    router.replace("/#thoughts");
+    router.push(href);
+  };
+
   return (
-    <Link href={`/blogs/${blog.slug}`} aria-label={`Read more about ${blog.title}`}>
+    <Link
+      href={href}
+      onClick={handleCardClick}
+      aria-label={`Read more about ${blog.title}`}
+    >
       <article className="group p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer">
         <div className="space-y-4">
           <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">

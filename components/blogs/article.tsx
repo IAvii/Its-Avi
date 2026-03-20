@@ -14,8 +14,8 @@ export default function Article({ content }: { content: string }) {
   }, [content]);
 
   return (
-    <div className="text-foreground leading-relaxed">
-      <article className="article flex flex-col gap-3 text-base tracking-wide mb-2 mx-auto   max-w-none mt-6 opacity-80">
+    <div className="text-foreground">
+      <article className="article mx-auto mt-6 text-base">
         {parse(content, options)}
       </article>
     </div>

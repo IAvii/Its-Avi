@@ -32,7 +32,7 @@ export default async function Page( { params }: { params: { slug: string | strin
     <main className="max-w-4xl mx-auto px-8 lg:px-16">
       <section
         id="blog"
-        className="min-h-screen py-32"
+        className="min-h-screen py-24"
       >
         <HydrationBoundary state={dehydrate(queryClient)}>
         <BlogPost slug={ slug } />

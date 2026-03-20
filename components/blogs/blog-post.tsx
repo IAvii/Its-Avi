@@ -29,12 +29,12 @@ export default function BlogPost({slug}: {slug: string | string[]}) {
   }
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-12">
           <h2 className="text-4xl sm:text-5xl font-light">{data.title}</h2>
 
           <div className="gap-8">
             <article className="group sm:p-8 transition-all duration-500 hover:shadow-lg">
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div className="flex items-center justify-between text-xs text-muted-foreground pb-2 font-mono border-b border-border/50 hover:border-border">
                   <span>{formatBlogDate(data.publishedAt)}</span>
                   <span>{data.readTimeInMinutes} min read</span>

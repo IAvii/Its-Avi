@@ -10,6 +10,13 @@ import Lenis from "lenis";
 import Introloading from "@/components/loaders/intro-loader";
 import PageLoader from "@/components/loaders/page-loader";
 import SiteFooter from "@/components/footer/site-footer";
+import { FloatingDock } from "@/components/ui/floating-dock";
+import {
+  IconBrandX,
+  IconExchange,
+  IconHome,
+} from "@tabler/icons-react";
+
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("");
@@ -79,6 +86,45 @@ export default function Home() {
 
   // if (loading) return <PageLoader />;
 
+  const links = [
+    {
+      title: "Intro",
+      icon: (
+        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#intro",
+    },
+
+    {
+      title: "Work",
+      icon: (
+        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#work",
+    },
+    {
+      title: "Thoughts",
+      icon: (
+        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#thoughts",
+    },
+    {
+      title: "Resume",
+      icon: (
+        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#Resume",
+    },
+    {
+      title: "Connect",
+      icon: (
+        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#connect",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground relative">
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
@@ -107,6 +153,12 @@ export default function Home() {
 
         <SiteFooter />
       </main>
+
+      <FloatingDock
+        items={links}
+        desktopClassName="fixed left-1/2 bottom-6 z-50 -translate-x-1/2"
+        mobileClassName="fixed left-1/2 bottom-6 z-50 -translate-x-1/2"
+      />
     </div>
   );
 }

@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import SiteFooter from "@/components/footer/site-footer"
 import QueryReactQuery from "@/components/utils/query-client";
 
 const inter = Inter({
@@ -63,9 +62,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const themeScript = `
+    (function () {
+      try {
+        var key = "theme";
+        var stored = localStorage.getItem(key);
+
+        if (stored === "light") {
+          document.documentElement.classList.remove("dark");
+          return;
+        }
+
+        if (stored === "dark") {
+          document.documentElement.classList.add("dark");
+          return;
+        }
+
+        document.documentElement.classList.add("dark");
+        localStorage.setItem(key, "dark");
+      } catch (e) {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  `
 
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <QueryReactQuery>
         {children}

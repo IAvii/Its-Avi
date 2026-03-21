@@ -1,41 +1,25 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function SiteFooter() {
-  const [isDark, setIsDark] = useState(true)
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === "undefined") return true
+    return document.documentElement.classList.contains("dark")
+  })
 
-  useEffect(() => {
-    try {
-      const stored = typeof window !== "undefined" ? localStorage.getItem("theme") : null
-      if (stored === "dark") {
-        setIsDark(true)
-        document.documentElement.classList.add("dark")
-      } else if (stored === "light") {
-        setIsDark(false)
-        document.documentElement.classList.remove("dark")
-      } else if (typeof window !== "undefined") {
-        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-        setIsDark(prefersDark)
-        document.documentElement.classList.toggle("dark", prefersDark)
+  const toggleTheme = () => {
+    setIsDark((prev) => {
+      const next = !prev
+      document.documentElement.classList.toggle("dark", next)
+      try {
+        localStorage.setItem("theme", next ? "dark" : "light")
+      } catch {
+        // ignore storage errors
       }
-    } catch {
-      // ignore storage errors
-    }
-  }, [])
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark)
-    try {
-      if (typeof window !== "undefined") {
-        localStorage.setItem("theme", isDark ? "dark" : "light")
-      }
-    } catch {
-      // ignore storage errors
-    }
-  }, [isDark])
-
-  const toggleTheme = () => setIsDark((v) => !v)
+      return next
+    })
+  }
 
   return (
     <footer className="py-16  border-t border-border">

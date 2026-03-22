@@ -95,7 +95,7 @@ export default function Home() {
     {
       title: "Intro",
       icon: (
-        <IconUser className="h-full w-full text-dock-icon" />
+        <IconUser className="h-full w-full text-muted-foreground group-hover:text-dock-icon transition-all ease-linear delay-150" />
       ),
       href: "#intro",
     },
@@ -103,28 +103,28 @@ export default function Home() {
     {
       title: "Projects",
       icon: (
-        <IconBrandProducthunt className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandProducthunt className="h-full w-full text-muted-foreground group-hover:text-dock-icon transition-all ease-linear delay-100" />
       ),
       href: "#projects",
     },
     {
       title: "Blogs",
       icon: (
-        <IconArticle className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconArticle className="h-full w-full text-muted-foreground group-hover:text-dock-icon transition-all ease-linear delay-100" />
       ),
       href: "#blogs",
     },
     {
       title: "Resume",
       icon: (
-        <IconFileCv className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconFileCv className="h-full w-full text-muted-foreground group-hover:text-dock-icon transition-all ease-linear delay-100" />
       ),
       href: "#resume",
     },
     {
       title: "Connect",
       icon: (
-        <IconConnection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconConnection className="h-full w-full text-muted-foreground group-hover:text-dock-icon transition-all ease-linear delay-100" />
       ),
       href: "#connect",
     },

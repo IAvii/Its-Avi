@@ -8,7 +8,7 @@ export function ResumeSection({
 }) {
   return (
     <section
-      id="Resume"
+      id="resume"
       ref={sectionRef}
       className="min-h-screen py-32 opacity-0"
     >

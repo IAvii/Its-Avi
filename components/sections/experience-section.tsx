@@ -8,7 +8,7 @@ export function ExperienceSection({
 
 
   return (
-    <section id="work" ref={sectionRef} className="min-h-screen py-32 opacity-0">
+    <section id="projects" ref={sectionRef} className="min-h-screen py-32 opacity-0">
       <div className="space-y-16">
         <div className="flex items-end justify-between">
           <h2 className="text-4xl font-light">Projects</h2>

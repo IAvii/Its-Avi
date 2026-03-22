@@ -16,7 +16,7 @@ export function BlogsSection({
   });
 
   return (
-    <section id="thoughts" ref={sectionRef} className="min-h-screen py-32 opacity-0"> 
+    <section id="blogs" ref={sectionRef} className="min-h-screen py-32 opacity-0"> 
       {isLoading ? (
         <PageLoader />
       ) : !data ? (

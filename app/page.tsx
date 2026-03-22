@@ -15,6 +15,11 @@ import {
   IconBrandX,
   IconExchange,
   IconHome,
+    IconUser,
+  IconBrandProducthunt,
+  IconArticle,
+  IconConnection ,
+  IconFileCv ,
 } from "@tabler/icons-react";
 
 
@@ -34,7 +39,7 @@ export default function Home() {
   // }, []);
 
   const sectionIds = useMemo(
-    () => ["intro", "work", "thoughts", "Resume", "connect"],
+    () => ["intro", "projects", "blogs", "resume", "connect"],
     []
   );
 
@@ -90,36 +95,36 @@ export default function Home() {
     {
       title: "Intro",
       icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconUser className="h-full w-full text-dock-icon" />
       ),
       href: "#intro",
     },
 
     {
-      title: "Work",
+      title: "Projects",
       icon: (
-        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandProducthunt className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#work",
+      href: "#projects",
     },
     {
-      title: "Thoughts",
+      title: "Blogs",
       icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconArticle className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#thoughts",
+      href: "#blogs",
     },
     {
       title: "Resume",
       icon: (
-        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconFileCv className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#Resume",
+      href: "#resume",
     },
     {
       title: "Connect",
       icon: (
-        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconConnection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "#connect",
     },
@@ -157,7 +162,7 @@ export default function Home() {
       <FloatingDock
         items={links}
         desktopClassName="fixed left-1/2 bottom-6 z-50 -translate-x-1/2"
-        mobileClassName="fixed left-1/2 bottom-6 z-50 -translate-x-1/2"
+       
       />
     </div>
   );

@@ -8,7 +8,6 @@
 
 ## 📸 Preview
 
-<!-- Add a screenshot of your portfolio here -->
 ![Portfolio Preview](./public/preview.png)
 
 ---
@@ -67,11 +66,11 @@ The portfolio includes a fully integrated blog section at [avinashganore.xyz/blo
 - Posts are fetched dynamically via the **Hashnode GraphQL API** using **React Query**
 - No rebuilds needed — new posts appear automatically on the site
 
-**UI Reference:**
+<!-- **UI Reference:**
 
 | Blogs Listing Page | Single Blog Page |
 |---|---|
-| ![Blogs Page](https://www.avinashganore.xyz/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1763882545878%2F9baa3b08-9260-4775-9e76-94cb044129df.png&w=1200&q=75) | ![Blog Post Page](https://www.avinashganore.xyz/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1763972503950%2F30474e9a-3ef6-4285-9ef9-0e56056db12c.png&w=1200&q=75) |
+| ![Blogs Page](https://www.avinashganore.xyz/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1763882545878%2F9baa3b08-9260-4775-9e76-94cb044129df.png&w=1200&q=75) | ![Blog Post Page](https://www.avinashganore.xyz/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1763972503950%2F30474e9a-3ef6-4285-9ef9-0e56056db12c.png&w=1200&q=75) | -->
 
 > 💡 **Note for contributors:** Blog content is managed externally on Hashnode. To update or add posts, publish them directly on the Hashnode dashboard — they'll automatically appear on the site.
 
@@ -83,10 +82,10 @@ To run this project locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/Xzy-Vron/<your-repo-name>.git
+git clone https://github.com/Xzy-Vron/Its-Avi.git
 
 # Navigate to the project directory
-cd <your-repo-name>
+cd Its-Avi
 
 # Install dependencies
 npm install
